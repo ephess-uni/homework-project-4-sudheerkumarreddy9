@@ -50,11 +50,21 @@ def fees_report(infile, outfile):
                 new_dict['patron_id'] = item['patron_id']
                 new_dict['late_fees'] = str(round(amount,2))
                 li.append(new_dict)
+        aggregated_data = {}
+        for i in li:
+            key = diictionary['patron_id']
+            aggregated_data[key] =  aggregated_data.get(key,0) + i['late_fees']
+        tax = [{'patron_id':key, 'late_fees':value} for key,value in aggregated_data.items()]
+        for di in tax:
+            for k,v in di.items():
+                if k == 'late_fees':
+                    if len(str(v).split('.')[-1]) != 2:
+                        di[k] = str(v) +'0'
+                
         with open(outfile,'w',newline='') as file:
             writer = DictWriter(file,['patron_id','late_fees'])
             writer.writeheader()
-            for item in li:
-                writer.writerow(item)
+            writer.writerow(tax)
     
 
 
