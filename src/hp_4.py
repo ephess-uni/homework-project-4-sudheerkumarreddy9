@@ -50,6 +50,11 @@ def fees_report(infile, outfile):
                 new_dict['patron_id'] = item['patron_id']
                 new_dict['late_fees'] = round(amount,2)
                 li.append(new_dict)
+            else:
+                new_dict['patron_id'] = item['patron_id']
+                new_dict['late_fees'] = float(0)
+                li.append(new_dict)
+                
         aggregated_data = {}
         for i in li:
             key = i['patron_id']
