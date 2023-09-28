@@ -48,7 +48,7 @@ def fees_report(infile, outfile):
             if days_obj.days > 0:
                 amount = days_obj.days * 0.25
                 new_dict['patron_id'] = item['patron_id']
-                new_dict['late_fees'] = str(round(amount,2))
+                new_dict['late_fees'] = round(amount,2)
                 li.append(new_dict)
         aggregated_data = {}
         for i in li:
