@@ -17,7 +17,7 @@ def date_range(start, n):
     """For input date string `start`, with format 'yyyy-mm-dd', returns
     a list of of `n` datetime objects starting at `start` where each
     element in the list is one day after the previous."""
-    if not isinsatnce(n,int) or if not isinatance(start,str):
+    if not isinsatnce(n,int) or not isinatance(start,str):
         raise TypeError
     dates_list = []
     for i in range(0,n):
