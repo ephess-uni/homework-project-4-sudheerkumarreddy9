@@ -50,10 +50,10 @@ def fees_report(infile, outfile):
                 new_dict['patron_id'] = item['patron_id']
                 new_dict['late_fees'] = str(round(amount,2))
                 li.append(new_dict)
-    with open(outfile,'w',newline='') as file:
-        writer = DictWriter(file,['patron_id','late_fees'])
-        writer.writeheader()
-        writer.writerow(li)
+        with open(outfile,'w',newline='') as file:
+            writer = DictWriter(file,['patron_id','late_fees'])
+            writer.writeheader()
+            writer.writerow(li)
     
 
 
