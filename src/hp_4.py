@@ -52,7 +52,7 @@ def fees_report(infile, outfile):
                 li.append(new_dict)
         aggregated_data = {}
         for i in li:
-            key = diictionary['patron_id']
+            key = i['patron_id']
             aggregated_data[key] =  aggregated_data.get(key,0) + i['late_fees']
         tax = [{'patron_id':key, 'late_fees':value} for key,value in aggregated_data.items()]
         for di in tax:
