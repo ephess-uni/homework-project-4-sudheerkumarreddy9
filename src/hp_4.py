@@ -21,7 +21,7 @@ def date_range(start, n):
         raise TypeError
     dates_list = []
     for i in range(0,n):
-        dates_list.append(datetime.strftime(start,'%Y-%m-%d') + timedelta(days=i))
+        dates_list.append(datetime.strptime(start,'%Y-%m-%d') + timedelta(days=i))
     return dates_list
         
 
@@ -32,7 +32,7 @@ def add_date_range(values, start_date):
     in the returned list."""
     dates_list = []
     for pos,val in enumerate(values):
-        dates_list.append((datetime.strftime(start_date,'%Y-%m-%d') + timedelta(days=pos),val))
+        dates_list.append((datetime.strptime(start_date,'%Y-%m-%d') + timedelta(days=pos),val))
     return dates_list
 
 
